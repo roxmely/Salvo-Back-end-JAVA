@@ -226,7 +226,7 @@ public class SalvoController {
         Map<String, Object> dto = new LinkedHashMap<String, Object>();
         dto.put("turn", salvo.getTurnNumber());
         dto.put("hitsAndMiss", this.getHits(opponent(gamePlayer).getShip(), salvo));
-        //dto.put("shipOpp", this.getOppShips(gamePlayer));
+     dto.put("shipOpp", this.getOppShips(gamePlayer));
         dto.put("salvosOpp", this.getOppSalvos(gamePlayer));
         return dto;
 
