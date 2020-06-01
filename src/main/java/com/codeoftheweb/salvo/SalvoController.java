@@ -72,6 +72,7 @@ public class SalvoController {
         gView.put("created", gamePlayer.getGame().getCreated());
         gView.put("gamePlayers", gamePlayer.getGame().gamePlayerDto());
         gView.put("ships", gamePlayer.getShips());
+        gView.put("shipsOpp", opponent(gamePlayer).getShips());
         gView.put("salvoes", gamePlayer.getSalvoes().stream().map(Salvo::salvoDTO).collect((toList())));
         gView.put("status", getGameStates (gamePlayer));
         gView.put("history", gamePlayer.getSalvoes().stream().sorted((gp1,gp2)->((Integer)gp1.getTurnNumber()).compareTo(gp2.getTurnNumber()))
@@ -225,7 +226,7 @@ public class SalvoController {
         Map<String, Object> dto = new LinkedHashMap<String, Object>();
         dto.put("turn", salvo.getTurnNumber());
         dto.put("hitsAndMiss", this.getHits(opponent(gamePlayer).getShip(), salvo));
-        dto.put("shipOpp", this.getOppShips(gamePlayer));
+        //dto.put("shipOpp", this.getOppShips(gamePlayer));
         dto.put("salvosOpp", this.getOppSalvos(gamePlayer));
         return dto;
 
